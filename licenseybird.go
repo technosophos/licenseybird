@@ -115,11 +115,11 @@ func addLicense(fname string, out io.Writer) error {
 }
 
 func hashPre(out io.Writer) error {
-	return linePrefix(lic, "# ", out)
+	return linePrefix(lic, "#", out)
 }
 
 func slashPre(out io.Writer) error {
-	return linePrefix(lic, "// ", out)
+	return linePrefix(lic, "//", out)
 }
 
 func slashStarPre(out io.Writer) {
@@ -136,7 +136,11 @@ func linePrefix(source, prefix string, out io.Writer) error {
 	scanner := bufio.NewScanner(b)
 	for scanner.Scan() {
 		out.Write(p)
-		out.Write(scanner.Bytes())
+		d := scanner.Bytes()
+		if len(d) > 1 {
+			out.Write([]byte(" "))
+		}
+		out.Write(d)
 		out.Write(eol)
 	}
 
