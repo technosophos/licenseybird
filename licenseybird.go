@@ -104,8 +104,8 @@ func addLicense(fname string, out io.Writer) error {
 		fmt.Fprintln(os.Stderr, "Markdown files do not need license blocks.")
 		return nil
 	case ".go":
-		fmt.Println("golang")
 		slashStarPre(out)
+		fmt.Fprintln(out)
 	default:
 		return fmt.Errorf("Format %s not supported", ext)
 	}
