@@ -1,4 +1,5 @@
 # licenseybird: Add license front matter to source files.
+[![Stability: Maintenance](https://masterminds.github.io/stability/maintenance.svg)](https://masterminds.github.io/stability/maintenance.html)
 
 This program adds license information to the front matter of files
 specified on the command line. The license material is commented based

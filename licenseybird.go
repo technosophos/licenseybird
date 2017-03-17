@@ -98,8 +98,11 @@ func addLicense(fname string, out io.Writer) error {
 	case ".py":
 		fmt.Fprintln(out, "#!/usr/bin/env python\n")
 		hashPre(out)
-	case ".sh", ".bash":
+	case ".sh", ".bash", ".mk":
 		hashPre(out)
+	case ".proto":
+		slashPre(out)
+		fmt.Fprintln(out)
 	case ".md":
 		fmt.Fprintln(os.Stderr, "Markdown files do not need license blocks.")
 		return nil
